@@ -1,0 +1,28 @@
+# Clojure
+.cpcache/
+target/
+*.jar
+*.class
+deps/
+
+# Node.js
+node_modules/
+
+# Editor/IDE
+.idea/
+.vscode/
+*.iml
+.DS_Store
+
+# Operating System
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+
+# Docker
+Dockerfile.bak
+
+# Gemini log
+gemini.log

@@ -1,0 +1,2 @@
+{:paths ["server" "engine" "tools"]
+ :aliases {:dev {:extra-paths ["dev"]}}}

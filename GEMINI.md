@@ -37,11 +37,19 @@ C12. Prefer modeling input and output, and communication between components -- a
 C13. Use conventional techniques from the Clojure and golang worlds for core.async communication, e.g. passing a structure containing a channel, then listening for a response on the channel.
 C14. Use spec at the edges (IO and interaction between gross components), but do not generally use spec for internals of the system. If there is a good reason to use spec outside these guidelines, outline it and ask for permission
 
+## Dependencies
+
+D1. If you are adding a reference to a third-party namespace, first make sure the package containing that namespace is referenced in deps.edn
+D2. When you add a reference to deps.edn:
+    1. If you remember that the package exists and contains the namespace, just add it. Check Maven Central to make sure you're adding the most up-to-date version. Remember that new version.
+    2. If you don't remember that the package exists and contains the namespace, first check that the package exists by searching Maven Central and ensuring the package exists.
+    3. Then follow links from Maven Central to the implementation (e.g. the Github repository) and check that the namespace is defined in the package.
+    4. Then add the reference to deps.edn and continue adding the reference to the namespace. Remember that the package exists and contains that namespace.
+
 ## Clojure testing
 
 T1. Use clojure.test
 T2. Use macros more liberally in test code, if it makes test cases clearer and more declarative.
-
 
 ## Clojure web technologies
 

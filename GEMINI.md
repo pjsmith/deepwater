@@ -15,7 +15,7 @@ G5. Every project should have a docs/ directory where more detailed docs about t
 ## Process
 
 P1. The first step in implementation of any project is reading the supplied design or specification, and expanding it into a docs/Spec.md file. Ask questions to clarify important points as you do this.
-P2. The next step is planning out a way to implement the project, and emitting that detailed plan into a docs/Plan.md file. The plan should focus on getting a working system running, then iterating on it bit-by-bit. It should go into detail about namespace design and implementation, data flows, data models, etc.
+P2. The next step is planning out a way to implement the project, and emitting that detailed plan into a docs/Plan.md file. The plan should focus on getting a working system running, then iterating on it bit-by-bit. It should go into detail about namespace design and implementation, data flows, data models, etc. Write the plan, then wait for explicit instructions to start implementing.
 P3. Any design decisions throughout the planning and implementation of the project should be recorded in detail in docs/Design.md
 P4. As you progress, If we make any decisions or take any actions which contradict the plan, update Plan.md.
 

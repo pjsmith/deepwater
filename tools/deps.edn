@@ -1,3 +1,6 @@
 {:paths ["src"]
- :deps {org.clojure/clojure {:mvn/version "1.11.1"}
-        deepwater/engine {:local/root "../engine"}}}
+ :deps {org.clojure/clojure {:mvn/version "1.12.1"}
+        deepwater/engine {:local/root "../engine"}}
+ :aliases
+ {:nrepl {:extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}}
+          :main-opts ["-m" "nrepl.cmdline" "--middleware" "[nrepl.middleware.interruptible-eval/interruptible-eval]"]}}}

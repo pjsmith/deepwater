@@ -35,3 +35,8 @@
    :player (Player. (java.util.UUID/randomUUID) 0 0 100 [])
    :monsters []
    :items []})
+
+(comment
+
+  (Wall.)
+  (->Wall))

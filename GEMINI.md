@@ -6,17 +6,17 @@ E1. You are working on Windows. Use windows file paths (starting with a drive le
 
 ## General
 
-G1. All projects must have a README.md file. The README must briefly explain what the project does, then how to build it. 
-G2. If any code you write invalidates the instructions in the README, update the README.
-G3. Every project must have a Dockerfile. The Dockerfile should be a multi-stage Dockerfile which builds the application in production mode in one stage, and runs it in another stage.
-G4. If the application has dependencies (database etc.) the repository should include a docker-compose file which allows a developer to run the application _and_ dependencies all in one.
-G5. Every project should have a docs/ directory where more detailed docs about the project live. This includes technical and non-technical docs, design docs, etc.
+* G1. All projects must have a README.md file. The README must briefly explain what the project does, then how to build it. 
+* G2. If any code you write invalidates the instructions in the README, update the README.
+* G3. Every project must have a Dockerfile. The Dockerfile should be a multi-stage Dockerfile which builds the application in production mode in one stage, and runs it in another stage.
+* G4. If the application has dependencies (database etc.) the repository should include a docker-compose file which allows a developer to run the application _and_ dependencies all in one.
+* G5. Every project should have a docs/ directory where more detailed docs about the project live. This includes technical and non-technical docs, design docs, etc.
 
 ## Process
 
-P1. The first step in implementation of any project is reading the supplied design or specification, and expanding it into a docs/Spec.md file. Ask questions to clarify important points as you do this.
-P2. The next step is planning out a way to implement the project, and emitting that detailed plan into a docs/Plan.md file. The plan should focus on getting a working system running, then iterating on it bit-by-bit. It should go into detail about namespace design and implementation, data flows, data models, etc. Write the plan, then wait for explicit instructions to start implementing.
-P3. Any design decisions throughout the planning and implementation of the project should be recorded in detail in docs/Design.md
+* P1. The first step in implementation of any project is reading the supplied design or specification, and expanding it into a docs/Spec.md file. Ask questions to clarify important points as you do this.
+* P2. The next step is planning out a way to implement the project, and emitting that detailed plan into a docs/Plan.md file. The plan should focus on getting a working system running, then iterating on it bit-by-bit. It should go into detail about namespace design and implementation, data flows, data models, etc. Write the plan, then wait for explicit instructions to start implementing.
+* P3. Any design decisions throughout the planning and implementation of the project should be recorded in detail in docs/Design.md
 P4. As you progress, If we make any decisions or take any actions which contradict the plan, update Plan.md.
 
 ## Clojure

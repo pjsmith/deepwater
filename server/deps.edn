@@ -1,0 +1,12 @@
+{:paths ["src"]
+ :deps {org.clojure/clojure {:mvn/version "1.12.1"}
+        org.clojure/core.async {:mvn/version "1.8.741"}
+        ring/ring-core {:mvn/version "1.9.6"}
+        ring/ring-jetty-adapter {:mvn/version "1.9.6"}
+        metosin/reitit {:mvn/version "0.9.1"}
+        metosin/muuntaja {:mvn/version "0.6.11"}
+        org.clojure/tools.logging {:mvn/version "1.3.0"}
+        deepwater/engine {:local/root "../engine"}}
+ :aliases
+ {:build {:deps {io.github.clojure/tools.build {:git/tag "v0.9.4" :git/sha "76b749a"}}
+          :ns build}}}

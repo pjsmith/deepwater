@@ -10,5 +10,7 @@
  :aliases
  {:build {:deps {io.github.clojure/tools.build {:git/tag "v0.9.4" :git/sha "76b749a"}}
           :ns build}
-  :nrepl {:extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}}
-          :main-opts ["-m" "nrepl.cmdline" "--middleware" "[nrepl.middleware.interruptible-eval/interruptible-eval]"]}}}
+  :nrepl {:extra-deps {nrepl/nrepl {:mvn/version "1.3.1"}
+                       cider/cider-nrepl {:mvn/version "0.57.0"}
+                       refactor-nrepl/refactor-nrepl {:mvn/version "3.11.0"}}
+          :main-opts ["-m" "nrepl.cmdline" "--middleware" "[refactor-nrepl.middleware/wrap-refactor, cider.nrepl/cider-middleware, nrepl.middleware.interruptible-eval/interruptible-eval]"]}}}

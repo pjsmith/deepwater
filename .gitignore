@@ -4,6 +4,9 @@ target/
 *.jar
 *.class
 deps/
+.lsp/
+.clj-kondo/
+.ignore
 
 # Node.js
 node_modules/

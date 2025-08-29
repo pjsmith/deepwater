@@ -26,11 +26,21 @@
    (reitit-ring/router
     ["/api/game"
      ["/command" {:post {:handler (command-handler game)}}]
-     ["/state" {:get {:handler (state-handler game)}}]])
+     ["/state" {:get {:handler (state-handler game)}}]]
+    {:data {:muuntaja m/instance
+            :middleware [parameters/parameters-middleware
+                         muuntaja/format-middleware]}})
    (reitit-ring/routes
     (reitit-ring/create-resource-handler {:path "/"})
-    (reitit-ring/create-default-handler))
-   {:middleware [parameters/parameters-middleware
-                 muuntaja/format-negotiate-middleware
-                 muuntaja/format-response-middleware
-                 muuntaja/format-request-middleware]}))
+    (reitit-ring/create-default-handler))))
+
+(comment
+  (require 'deepwater.engine.core)
+  (require '[muuntaja.parse :as m.p])
+  (let [game (deepwater.engine.core/create-game 80 24)]
+    ((state-handler game) 1))
+  (let [m' (m/create)
+        req {:request-method :get, :content-type "application/json; charset=UTF-8"}
+        res {:body {:a 1}}]
+    (m/format-response m' req res))
+  )

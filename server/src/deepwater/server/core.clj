@@ -11,3 +11,8 @@
         app (web/app game)]
     (reset! server (jetty/run-jetty app {:port 3000 :join? false}))
     (println "Server started on port 3000")))
+
+(comment
+  (do (when @server (.stop @server))
+      (-main))
+  )

@@ -10,7 +10,9 @@
  :aliases
  {:dev {:extra-deps {dev.weavejester/hashp {:mvn/version "0.4.0"}
                      djblue/portal {:mvn/version "0.60.2"}}}
-  :build {:deps {io.github.clojure/tools.build {:git/tag "v0.9.4" :git/sha "76b749a"}}
+  :build {:deps {io.github.clojure/tools.build
+                 {:git/tag "v0.10.10"
+                  :git/sha "deedd62"}}
           :ns build}
   :nrepl {:extra-deps {nrepl/nrepl {:mvn/version "1.3.1"}
                        cider/cider-nrepl {:mvn/version "0.57.0"}

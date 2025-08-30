@@ -1,5 +1,5 @@
 # Build stage
-FROM clojure:tools-deps-1.11.1.1413 AS build
+FROM clojure:tools-deps-1.12.2.1565-trixie-slim
 
 WORKDIR /app
 

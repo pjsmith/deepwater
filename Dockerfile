@@ -7,7 +7,8 @@ WORKDIR /app
 COPY . .
 
 # Create the uberjar
-RUN cd server && clojure -T:build uber
+RUN cd server && clojure -P
+RUN clojure -T:build uber
 
 # Runtime stage
 FROM openjdk:11-jre-slim

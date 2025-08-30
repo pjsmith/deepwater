@@ -7,7 +7,7 @@ WORKDIR /app
 COPY . .
 
 # Create the uberjar
-RUN clojure -T:build uber
+RUN cd server && clojure -T:build uber
 
 # Runtime stage
 FROM openjdk:11-jre-slim
@@ -15,7 +15,7 @@ FROM openjdk:11-jre-slim
 WORKDIR /app
 
 # Copy the uberjar from the build stage
-COPY --from=build /app/target/deepwater.jar .
+COPY --from=build /app/server/target/deepwater.jar .
 
 # Expose the port the app runs on
 EXPOSE 3000

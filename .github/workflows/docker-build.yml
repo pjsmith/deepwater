@@ -40,7 +40,7 @@ jobs:
         with:
           images: |
             ghcr.io/${{ github.repository }}
-	    australia-southeast2-docker.pkg.dev/deepwater-470621/docker-images/${{ github.event.repository.name }}
+            australia-southeast2-docker.pkg.dev/deepwater-470621/docker-images/${{ github.event.repository.name }}
 
       # --- Build and Push to both Registries ---
       - name: Build and push to both registries

@@ -31,7 +31,7 @@
             :middleware [parameters/parameters-middleware
                          muuntaja/format-middleware]}})
    (reitit-ring/routes
-    (reitit-ring/create-resource-handler {:path "/" :root "public"})
+    (reitit-ring/create-resource-handler {:path "/"})
     (reitit-ring/create-default-handler))))
 
 (comment

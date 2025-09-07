@@ -7,7 +7,7 @@ WORKDIR /app
 COPY . .
 
 ARG GIT_SHA
-RUN mkdir -p server/public && echo ${GIT_SHA:-"unknown"} > server/public/version.txt
+RUN mkdir -p server/resources/public && echo ${GIT_SHA:-"unknown"} > server/resources/public/version.txt
 
 # Create the uberjar
 RUN cd server && clojure -P

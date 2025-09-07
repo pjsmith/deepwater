@@ -6,6 +6,8 @@ WORKDIR /app
 # Copy all project files
 COPY . .
 
+ARG GIT_SHA
+
 # Create the uberjar
 RUN cd server && clojure -P
 RUN cd server && clojure -T:build uber
@@ -17,6 +19,8 @@ WORKDIR /app
 
 # Copy the uberjar from the build stage
 COPY --from=build /app/server/target/deepwater.jar .
+
+RUN echo $GIT_SHA >> /app/server/public/version.txt
 
 # Expose the port the app runs on
 EXPOSE 3000

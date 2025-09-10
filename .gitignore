@@ -30,3 +30,7 @@ Dockerfile.bak
 # Gemini log
 gemini.log
 .nrepl-port
+.gemini/
+
+# Claude
+.claude/

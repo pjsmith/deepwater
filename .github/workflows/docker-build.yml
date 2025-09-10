@@ -49,12 +49,13 @@ jobs:
             ghcr.io/${{ github.repository }}
             ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}
 
-      # --- Build and Push to both Registries ---
-      - name: Build and push to both registries
+      # --- Build and Push Combined Container (Server + Client) ---
+      - name: Build and push combined container
         id: build-and-push
         uses: docker/build-push-action@v4
         with:
           context: .
+          target: combined
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

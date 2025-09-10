@@ -1,5 +1,22 @@
 services:
+  # Combined server+client (default for local development)
   deepwater:
-    build: .
+    build:
+      context: .
+      target: combined
     ports:
       - "3000:3000"
+    environment:
+      - ENV=development
+    
+  # Server-only deployment
+  deepwater-server:
+    build:
+      context: .
+      target: server
+    ports:
+      - "3000:3000"
+    environment:
+      - ENV=production
+    profiles:
+      - server-only

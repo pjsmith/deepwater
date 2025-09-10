@@ -8,6 +8,8 @@ A simple roguelike game with a client-server architecture.
 
 The easiest way to run the game is using Docker and Docker Compose.
 
+#### Combined Server + Client (Default for Local Development)
+
 1.  Make sure you have Docker and Docker Compose installed.
 2.  Clone this repository.
 3.  From the root of the repository, run:
@@ -17,6 +19,28 @@ The easiest way to run the game is using Docker and Docker Compose.
     ```
 
 4.  Open your browser and navigate to `http://localhost:3000/game` to play the game.
+
+This builds a container with both the server and client resources packaged together.
+
+#### Server-Only Deployment
+
+To run only the server (useful for production with separate client deployment):
+
+```
+docker-compose --profile server-only up deepwater-server
+```
+
+Or build directly:
+
+```
+docker build --target server -t deepwater-server .
+docker run -p 3000:3000 deepwater-server
+```
+
+#### Docker Build Targets
+
+- `combined` (default): Server with client resources packaged in the JAR
+- `server`: Server-only build without client resources
 
 ### Running the server and client separately
 

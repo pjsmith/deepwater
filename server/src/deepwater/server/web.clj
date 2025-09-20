@@ -21,18 +21,21 @@
     {:status 200
      :body @(:state game)}))
 
-(defn app [game]
-  (reitit-ring/ring-handler
-   (reitit-ring/router
-    ["/api/game"
-     ["/command" {:post {:handler (command-handler game)}}]
-     ["/state" {:get {:handler (state-handler game)}}]]
-    {:data {:muuntaja m/instance
-            :middleware [parameters/parameters-middleware
-                         muuntaja/format-middleware]}})
-   (reitit-ring/routes
-    (reitit-ring/create-resource-handler {:path "/"})
-    (reitit-ring/create-default-handler))))
+(defn app 
+  ([game] (app game {}))
+  ([game {:keys [extra-routes resource-handlers]}]
+   (reitit-ring/ring-handler
+    (reitit-ring/router
+     (concat ["/api/game"
+              ["/command" {:post {:handler (command-handler game)}}]
+              ["/state" {:get {:handler (state-handler game)}}]]
+             extra-routes)
+     {:data {:muuntaja m/instance
+             :middleware [parameters/parameters-middleware
+                          muuntaja/format-middleware]}})
+    (apply reitit-ring/routes
+           (concat resource-handlers
+                   [(reitit-ring/create-default-handler)])))))
 
 (comment
   (require 'deepwater.engine.core)

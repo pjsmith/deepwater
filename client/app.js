@@ -64,4 +64,19 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+// Live reload WebSocket connection
+function setupLiveReload() {
+    const ws = new WebSocket(`ws://${window.location.host}/ws`);
+    ws.onmessage = function(event) {
+        if (event.data === 'reload') {
+            window.location.reload();
+        }
+    };
+    ws.onclose = function() {
+        // Reconnect after 1 second
+        setTimeout(setupLiveReload, 1000);
+    };
+}
+
+setupLiveReload();
 init();

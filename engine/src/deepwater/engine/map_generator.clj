@@ -17,3 +17,6 @@
       (assoc :player (gs/->Player (java.util.UUID/randomUUID) (quot width 2) (quot height 2) 100 []))
       (assoc :monsters [(gs/->Monster (java.util.UUID/randomUUID) 5 5 10)])
       (assoc :items [(gs/->Item (java.util.UUID/randomUUID) "Amulet of Yendor" "\"" :yellow)])))
+
+(comment
+  (generate-map 8 4))

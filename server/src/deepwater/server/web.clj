@@ -1,9 +1,12 @@
 (ns deepwater.server.web
-  (:require [reitit.ring :as reitit-ring]
-            [muuntaja.core :as m]
-            [reitit.ring.middleware.muuntaja :as muuntaja]
-            [reitit.ring.middleware.parameters :as parameters]
-            [clojure.core.async :as async]))
+  (:require
+   [clojure.core.async :as async]
+   [muuntaja.core :as m]
+   [reitit.ring :as reitit-ring]
+   [reitit.ring.middleware.muuntaja :as muuntaja]
+   [reitit.ring.middleware.parameters :as parameters]
+
+   [deepwater.server.translate :as t]))
 
 (defn- command-handler [game]
   (fn [req]
@@ -19,7 +22,7 @@
 (defn- state-handler [game]
   (fn [_]
     {:status 200
-     :body @(:state game)}))
+     :body (t/translate @(:state game))}))
 
 (defn app 
   ([game] (app game {}))
@@ -46,4 +49,7 @@
         req {:request-method :get, :content-type "application/json; charset=UTF-8"}
         res {:body {:a 1}}]
     (m/format-response m' req res))
+
+  (t/translate @(:state (deepwater.engine.core/create-game 8 4)) 
+               )
   )

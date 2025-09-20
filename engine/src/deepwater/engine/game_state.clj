@@ -31,7 +31,7 @@
   (get-color [this] :dark-gray))
 
 (defn initial-state [map-width map-height]
-  {:map (vec (replicate map-height (vec (replicate map-width (Floor.)))))
+  {:map (vec (repeat map-height (vec (repeat map-width (Floor.)))))
    :player (Player. (java.util.UUID/randomUUID) 0 0 100 [])
    :monsters []
    :items []})

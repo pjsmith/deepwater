@@ -48,7 +48,7 @@
    :resource-handlers [(reitit-ring/create-file-handler {:root "../client" :path "/"})]})
 
 (defn -main [& args]
-  (let [game (engine/create-game 80 24)
+  (let [game (engine/create-game 12 8)
         app (web/app game (client-web-config))]
     (reset! server (jetty/run-jetty app {:port 3000 :join? false}))
     (println "Server started on port 3000 with client serving and live reload")))

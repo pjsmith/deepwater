@@ -45,7 +45,7 @@ function render(state) {
     gameDisplay.textContent = display;
 
     let inventory = 'Inventory:\n';
-    player.inventory.forEach(item => {
+    (player.inventory || []).forEach(item => {
         inventory += `- ${item.name}\n`;
     });
     inventoryDisplay.textContent = inventory;

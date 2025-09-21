@@ -17,7 +17,7 @@
       (async/>!! in-chan (assoc command :correlation-id correlation-id))
       (let [response (async/<!! out-chan)]
         {:status 200
-         :body (:state response)}))))
+         :body (t/translate (:state response))}))))
 
 (defn- state-handler [game]
   (fn [_]
@@ -43,7 +43,7 @@
 (comment
   (require 'deepwater.engine.core)
   (require '[muuntaja.parse :as m.p])
-  (let [game (deepwater.engine.core/create-game 80 24)]
+  (let [game (deepwater.engine.core/create-game 8 4)]
     ((state-handler game) 1))
   (let [m' (m/create)
         req {:request-method :get, :content-type "application/json; charset=UTF-8"}

@@ -43,9 +43,21 @@
   (when file-watcher
     (hawk/stop! file-watcher)))
 
+(defn- no-cache
+  [h]
+  (fn [req]
+    #p (assoc-in (h req)
+              [:headers "Cache-Control"]
+              "no-cache")))
+
+(defn- file-handler
+  []
+  (let [h (reitit-ring/create-file-handler {:root "../client" :path "/"})]
+    (no-cache h)))
+
 (defn client-web-config []
   {:extra-routes [["/ws" {:get {:handler websocket-handler}}]]
-   :resource-handlers [(reitit-ring/create-file-handler {:root "../client" :path "/"})]})
+   :resource-handlers [(file-handler)]})
 
 (defn -main [& args]
   (let [game (engine/create-game 12 8)
